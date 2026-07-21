@@ -1,0 +1,6 @@
+{
+  "name": "Infinity Shop",
+  "description": "An elegant, completely offline Shop Management app designed for small businesses (grocery, pharmacies, clothing, stationary, mobile, cosmetics, and hardware shops) with stock tracking, invoice generation, expense management, local backups, pin lock, and detailed reports in Bengali & English.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
