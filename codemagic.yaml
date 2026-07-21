@@ -1,0 +1,38 @@
+workflows:
+  infinity-shop2-debug:
+    name: Infinity Shop 2 Debug APK
+
+    max_build_duration: 60
+
+    environment:
+      java: 17
+
+    cache:
+      cache_paths:
+        - ~/.gradle/caches
+        - ~/.gradle/wrapper
+
+    scripts:
+      - name: Set Android SDK location
+        script: |
+          echo "sdk.dir=$ANDROID_SDK_ROOT" > "$CM_BUILD_DIR/local.properties"
+
+      - name: Make Gradle executable
+        script: |
+          chmod +x gradlew
+
+      - name: Verify Gradle
+        script: |
+          ./gradlew --version
+
+      - name: Clean Project
+        script: |
+          ./gradlew clean --stacktrace
+
+      - name: Build Debug APK
+        script: |
+          ./gradlew assembleDebug --stacktrace
+
+    artifacts:
+      - app/build/outputs/**/*.apk
+      - app/build/reports/**
